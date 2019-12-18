@@ -2,42 +2,32 @@
 	Publish Notes Field CSS
 -------------------------------------------------------------------------*/
 
-.field-publishnotes:not(.instance) {
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	height: auto;
-	min-height: auto;
+.field.field-publishnotes {
+	--standard-label-color: var(--color-main-dark);
+	--primary-field-background-color: var(--color-main-lighter);
+	--secondary-field-background-color: var(--color-main-lighter);
+	
+	padding: var(--standard-inner-rhythm);
+	margin: var(--standard-outer-rhythm) 0;
+	border-radius: var(--standard-field-border-radius);
 }
 
-.field-publishnotes:not(.instance) .control {
-	margin-top: 1rem;
+.field.field-publishnotes .publishnotes-edit {
+	float: right;
+	margin-left: var(--standard-inner-rhythm);
 }
 
-.field-publishnotes:not(.instance) .control input {
-	margin-bottom: 0; width: auto;
+.field.field-publishnotes .cancel:not(:hover) {
+	background: transparent;
+	color: var(--color-main);
 }
 
-.field-publishnotes:not(.instance) a.publishnotes-edit {
-	color: var(--color-accent);
-	position: absolute;
-	top: 0;
-	right: 0;
+.field.field-publishnotes .cancel:hover {
+	background-color: var(--color-error-light);
+	color: var(--color-error-dark);
 }
 
-.field-publishnotes:not(.instance).editable a.publishnotes-edit {
-	display: none;
-}
-
-.field-publishnotes:not(.instance) p a {
-	transition: color 0.2s;
-	color: #2f77eb;
-}
-
-.field-publishnotes:not(.instance) p a:hover {
-	color: currentColor;
-}
-
-.field-publishnotes:not(.instance) label {
-	margin-bottom: 0!important;
+.field.field-publishnotes .apply {
+	font-size: var(--text-smaller);
+	margin-top: var(--standard-inner-rhythm);
 }
