@@ -68,27 +68,31 @@
 			if (isset($editable) && $editable) {
 				$wrapper->setAttribute('class', $wrapper->getAttribute('class') . " editable");
 				$edit = new XMLElement("a", __("Edit note"), array(
-					"class"	=> "publishnotes-edit",
+					"class"	=> "publishnotes-edit button",
 					"href" 	=> "#edit"
 				));
-				$wrapper->appendChild($edit);
+
+				$editor = new XMLElement('div', null, array('class' => 'publishnotes-editor')); 
+
+				$wrapper->prependChild($edit);
+				$wrapper->appendChild($editor);
 
 				# Add <textarea>
 				$label = Widget::Label("Edit: ".$this->get('label'), null, Lang::createHandle($this->get('label')));
 				$textarea = Widget::Textarea('fields'.$fieldnamePrefix.'['.$this->get('element_name').']'.$fieldnamePostfix, 8, 50, (strlen($note) != 0 ? General::sanitize($note) : null));
 
-				$label->appendChild($textarea);
+				$editor->appendChild($textarea);
 
 				$control = new XMLElement("div",
-					'<input type="submit" value="Change note"/> or <a href="#">cancel</a>',
+					'<input type="submit" value="Confirm changes"/><a href="#" class="cancel button">cancel</a>',
 					array(
-						"class" => "control"
+						"class" => "control apply"
 					)
 				);
-				$label->appendChild($control);
+				$editor->appendChild($control);
 
-				if($flagWithError != null) $wrapper->appendChild(Widget::Error($label, $flagWithError));
-				else $wrapper->appendChild($label);
+				if($flagWithError != null) $editor->prependChild(Widget::Error($label, $flagWithError));
+				else $editor->prependChild($label);
 			}
 		}
 

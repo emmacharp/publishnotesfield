@@ -11,7 +11,7 @@ Publish Notes Field JS
 	 */
 	var editInPlace = function() {
 		var field = $(this);
-		var label = $('label', field);
+		var editor = $('.publishnotes-editor', field);
 		var save = $('.control input', field);
 		var cancel = $('.control a', field);
 		var edit = $('.publishnotes-edit', field);
@@ -19,7 +19,7 @@ Publish Notes Field JS
 
 		// Hover/open editable
 		$('.publishnotes-edit', field).bind('click', function(e) {
-			label.show();
+			editor.show();
 			edit.hide();
 			editable.hide();
 			e.preventDefault();
@@ -35,7 +35,7 @@ Publish Notes Field JS
 			editable.html(value);
 			edit.show();
 			editable.show();
-			label.hide();
+			editor.hide();
 			return false;
 		});
 
@@ -45,13 +45,13 @@ Publish Notes Field JS
 			$('textarea', field).val(value);
 			edit.show();
 			editable.show();
-			label.hide();
+			editor.hide();
 			return false;
 		});
 
 		edit.show();
 		editable.show();
-		label.hide();
+		editor.hide();
 	};
 
 	var init = function () {
