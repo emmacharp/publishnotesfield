@@ -4,12 +4,16 @@
 
 .field.field-publishnotes {
 	--standard-label-color: var(--color-main-dark);
-	--primary-field-background-color: var(--color-accent-light);
-	--secondary-field-background-color: var(--color-accent-light);
+	--standard-field-background-color: var(--color-accent-light);
 	
 	padding: var(--standard-inner-rhythm);
 	margin: var(--standard-outer-rhythm) 0;
-	border-radius: var(--standard-field-border-radius);
+	border-radius: var(--field-stack-border-radius);
+}
+
+.field-publishnotes+.field {
+	border-top-left-radius: var(--field-stack-border-radius);
+	border-top-right-radius: var(--field-stack-border-radius);
 }
 
 .field.field-publishnotes .publishnotes-edit {
